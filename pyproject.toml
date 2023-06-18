@@ -1,0 +1,23 @@
+[tool.poetry]
+name = "fastapi-everything-di"
+version = "0.1.0"
+description = "FastAPI DI Example"
+authors = ["fitzypop <32967490+fitzypop@users.noreply.github.com>"]
+license = "Unlicense"
+readme = "README.md"
+packages = [{include = "fastapi_everything_di"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+fastapi = "^0.97.0"
+uvicorn = {extras = ["standard"], version = "^0.22.0"}
+
+
+[tool.poetry.group.dev.dependencies]
+black = "^23.3.0"
+ruff = "^0.0.272"
+pytest = "^7.3.2"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
