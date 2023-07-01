@@ -1,16 +1,17 @@
 [tool.poetry]
-name = "fastapi-everything-di"
+name = "fastapi-auth0-example"
 version = "0.1.0"
-description = "FastAPI DI Example"
+description = "FastAPI Auth0 Example"
 authors = ["fitzypop <32967490+fitzypop@users.noreply.github.com>"]
 license = "Unlicense"
 readme = "README.md"
-packages = [{include = "fastapi_everything_di"}]
+packages = [{ include = "example_api" }]
+repository = "https://github.com/fitzypop/fastapi-auth0-example"
 
 [tool.poetry.dependencies]
 python = "^3.11"
 fastapi = "^0.97.0"
-uvicorn = {extras = ["standard"], version = "^0.22.0"}
+uvicorn = { extras = ["standard"], version = "^0.22.0" }
 fastapi-auth0 = "^0.4.0"
 auth0-python = "^4.3.0"
 python-dotenv = "^1.0.0"
