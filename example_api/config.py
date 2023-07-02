@@ -3,7 +3,7 @@ from functools import lru_cache
 from pydantic import BaseSettings
 
 
-class Config(BaseSettings):
+class ApiConfig(BaseSettings):
     AUTH0_API_AUDIENCE: str
     AUTH0_DOMAIN: str
 
@@ -13,5 +13,5 @@ class Config(BaseSettings):
 
 
 @lru_cache
-def get_config():
-    return Config()  # type: ignore
+def api_config():
+    return ApiConfig()  # type: ignore

@@ -4,13 +4,13 @@ from typing import Annotated
 import fastapi_auth0.auth as fastapi_auth0
 from fastapi import Depends, Security
 
-from example_api.config import Config as _Config
-from example_api.config import get_config
+from example_api.config import ApiConfig as _APiConfig
+from example_api.config import api_config
 
 
 @lru_cache
-def get_verifier():
-    config = get_config()
+def verifier():
+    config = api_config()
     return fastapi_auth0.Auth0(
         domain=config.AUTH0_DOMAIN,
         api_audience=config.AUTH0_API_AUDIENCE,
@@ -18,10 +18,10 @@ def get_verifier():
     )
 
 
-TokenUser = Annotated[fastapi_auth0.Auth0User, Depends(get_verifier().get_user)]
+TokenUser = Annotated[fastapi_auth0.Auth0User, Depends(verifier().get_user)]
 
-Config = Annotated[_Config, Depends(get_config)]
+APIConfig = Annotated[_APiConfig, Depends(api_config)]
 
 
 def Scopes(*scopes):
-    return Security(get_verifier().get_user, scopes=scopes)
+    return Security(verifier().get_user, scopes=scopes)
